@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/newVideo.css">
+    <meta> 
+</head>
+<body>
+    <header class="header__container">
+        <h1 class="header__title">Nuevo Video!</h1>
+    </header>
+    <main class="main__container">
+        <form class="main__form">
+            <label class="main__form__label" for="miniatura">Url Miniatura</label>
+            <input class="main__form__input" id="miniatura" placeholder="Digite el URL de la miniatura" type="text" >
+            
+            <label class="main__form__label" for="titulo">Titulo</label>
+            <input class="main__form__input" id="titulo" placeholder="Digite el Titulo" type="text" >
+            
+            <label class="main__form__label" for="categoria">Categoria</label>
+            <select class="main__form__input"id="categoria">
+                <option value="">Seleccione una opción</option>
+                <option value="musica">Musica</option>
+                <option value="programacion">Programacion</option>
+                <option value="backend">Backend</option>
+            </select>
+
+            <label class="main__form__label" for="autor">Autor</label>
+            <input class="main__form__input" id="autor" placeholder="Digite El Autor" type="text" > 
+            
+            <label class="main__form__label" for="vistas">Numero de Vistas</label>
+            <input class="main__form__input" id="vistas" placeholder="Digite La Cantidad De Vistas" type="text" > 
+           
+            <label class="main__form__label" for="fecha">Fecha De Creacion</label>
+            <input class="main__form__input" id="fecha" placeholder="Digite la fecha" type="date" >
+        
+            <button class="main__form__button" type="submit">Agregar</button>
+        </form> 
+    </main>
+    <footer class="footer__container">
+        <button class="footer__button" onclick="location.href='../index.html'">Volver a la pagina principal</button>
+    </footer>
+</body>
+</html>

@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap');
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: content-box;
+    box-sizing: border-box;
 }
 
 body {
@@ -13,6 +14,11 @@ body {
 }
 
 .header__container {
+    display: flex;
+}
+
+.nav__bar {
+    margin-top: 30px;
     display: flex;
 }
 
@@ -33,7 +39,7 @@ body {
     font-family: 'Poppins', sans-serif;
     padding-left: 30px;
     font-size: 24px;
-    width: 500px;
+    width: 400px;
     color: white;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
@@ -43,7 +49,6 @@ body {
 }
 
 .header__search {
-    cursor: pointer;
     border-color: white;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -56,34 +61,57 @@ body {
     background-repeat: no-repeat;
 }
 
-.main__form {
+.header__search:hover {
+    cursor: pointer;
+}
+
+.main__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    padding: 40px;
+}
+
+.img__article {
+    /* height: 200px; */
+    width: 370px;
+}
+
+.title__article, .p__article {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    color: white;
+}
+
+.main__nav__button{
+    border-radius: 30px;
+    padding: 12px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #373737;
+    color: white;
+    border-color: white;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.footer__container {
+    top: 50px;
+    position: relative;
     display: flex;
     flex-direction: column;
-    padding: 50px;
     align-items: center;
-    gap: 7px;
+    margin-bottom: 25px;
 }
 
-.main__form__label, .main__form__input {
-    font-size: 36px;
-    color: white;
-    font-family: 'Poppins', sans-serif;
+.footer__button {
+    font-size: 20px;
+    padding: 15px;
+    width: 250px;
 }
 
-.main__form__input {
-    color: black;
-    width: 700px;
-}
-
-.main__form__button {
-    margin-top: 25px;
-    font-size: 35px;
-    border-radius: 10px;
-    border-color: blueviolet;
-    width: 150px;
-}
-
-.main__form__button:hover {
+.footer__button:hover {
     transition: 1s;
     background-color: blueviolet;
     color: white;
