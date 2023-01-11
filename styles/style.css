@@ -10,7 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #181818;
-    padding: 50px;
+    padding: 20px;
 }
 
 .header__container {
@@ -39,7 +39,7 @@ body {
     font-family: 'Poppins', sans-serif;
     padding-left: 30px;
     font-size: 24px;
-    width: 400px;
+    width: 450px;
     color: white;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
@@ -74,12 +74,13 @@ body {
     padding: 40px;
 }
 
-.img__article {
-    /* height: 200px; */
+
+
+.figure__container, .img__article {
     width: 370px;
 }
 
-.title__article, .p__article {
+.title__article, .p__article{
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
     color: white;
@@ -94,6 +95,12 @@ body {
     border-color: white;
     margin-left: 10px;
     font-size: 20px;
+}
+
+.main__nav__button:hover {
+    transition: 1s;
+    cursor: pointer;
+    transform: scale(1.1,1.1);
 }
 
 .footer__container {

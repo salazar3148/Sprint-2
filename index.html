@@ -1,75 +1,39 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles/style.css">
-    <meta> 
+    <meta>
 </head>
+
 <body>
     <header class="header__container">
         <img class="header__img" src="/img/logo.png">
         <h1 class="header__title">VideoTube</h1>
-        <input class="header__input" placeholder="Buscar Video">
-        <button class="header__search"></button>
+        <input id="search__input"class="header__input" placeholder="Buscar Video Por Titulo ó Autor">
+        <button id="search__button" class="header__search"></button>
     </header>
     <nav class="nav__bar">
-        <button class="main__nav__button">Todos</button>
-        <button class="main__nav__button">Música</button>
-        <button class="main__nav__button">Programacion</button>
-        <button class="main__nav__button">Backend</button>
+        <button id="todos" class="main__nav__button">Todos</button>
+        <button id="musica" class="main__nav__button">Música</button>
+        <button id="programacion" class="main__nav__button">Programacion</button>
+        <button id="backend" class="main__nav__button">Backend</button>
     </nav>
     <main class="main__container">
         <article class="main__article">
-            <img class="img__article"src="https://i.ytimg.com/vi/51XzW98wEDg/maxresdefault.jpg">
+            <img class="img__article" src="https://i.ytimg.com/vi/51XzW98wEDg/maxresdefault.jpg">
             <h3 class="title__article"> Aqui hay una oracion larga larga</h3>
             <p class="p__article"> Tri Line</p>
             <p class="p__article">2200 Vistas - 12 Ago. 2021</p>
         </article>
-        <article class="main__article">
-            <img class="img__article"src="https://i.ytimg.com/vi/51XzW98wEDg/maxresdefault.jpg">
-            <h3 class="title__article"> Aqui hay una oracion larga larga</h3>
-            <p class="p__article"> Tri Line</p>
-            <p class="p__article">2200 Vistas - 12 Ago. 2021</p>
-        </article>
-        <article class="main__article">
-            <img class="img__article"src="https://i.ytimg.com/vi/51XzW98wEDg/maxresdefault.jpg">
-            <h3 class="title__article"> Aqui hay una oracion larga larga</h3>
-            <p class="p__article"> Tri Line</p>
-            <p class="p__article">2200 Vistas - 12 Ago. 2021</p>
-        </article>
-        <article class="main__article">
-            <img class="img__article"src="https://i.ytimg.com/vi/51XzW98wEDg/maxresdefault.jpg">
-            <h3 class="title__article"> Aqui hay una oracion larga larga</h3>
-            <p class="p__article"> Tri Line</p>
-            <p class="p__article">2200 Vistas - 12 Ago. 2021</p>
-        </article>
-        <article class="main__article">
-            <img class="img__article"src="https://i.ytimg.com/vi/51XzW98wEDg/maxresdefault.jpg">
-            <h3 class="title__article"> Aqui hay una oracion larga larga</h3>
-            <p class="p__article"> Tri Line</p>
-            <p class="p__article">2200 Vistas - 12 Ago. 2021</p>
-        </article>
-        <article class="main__article">
-            <img class="img__article"src="https://i.ytimg.com/vi/51XzW98wEDg/maxresdefault.jpg">
-            <h3 class="title__article"> Aqui hay una oracion larga larga</h3>
-            <p class="p__article"> Tri Line</p>
-            <p class="p__article">2200 Vistas - 12 Ago. 2021</p>
-        </article>
-        <article class="main__article">
-            <img class="img__article"src="https://i.ytimg.com/vi/51XzW98wEDg/maxresdefault.jpg">
-            <h3 class="title__article"> Aqui hay una oracion larga larga</h3>
-            <p class="p__article"> Tri Line</p>
-            <p class="p__article">2200 Vistas - 12 Ago. 2021</p>
-        </article>
-        
-        
-        
     </main>
     <footer class="footer__container">
-        <button class="footer__button"onclick="location.href='/pages/newVideo.html'">Crear Un Nuevo Video!</button>
+        <button class="footer__button" onclick="location.href='/pages/newVideo.html'">Crear Un Nuevo Video!</button>
     </footer>
+    <script src="/script.js"></script>
 </body>
 </html>
