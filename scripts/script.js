@@ -1,4 +1,4 @@
-videos = [
+const videos = [
     {
         miniatura: "https://i.ytimg.com/vi/51XzW98wEDg/maxresdefault.jpg",
         titulo: "Boulevard Of Broken Dreams",
@@ -41,8 +41,7 @@ videos = [
     }
 ]
 
-
-
+let videosSS = sessionStorage.getItem("videosSS") ? JSON.parse(sessionStorage.getItem("videosSS")) : [];
 const videoContainer = document.querySelector(".main__container")
 
 //Botones de Filtrado
@@ -52,25 +51,28 @@ Object.keys(nav).forEach((child) => {
     if (nav[child].id) botones.push(nav[child])
 })
 
+//Articles
+let articles;
+
 const busqueda = document.querySelector("#search__button")
 
-const imprimirVideos = (videos, contenedor, categoria = "todos", buscar = "") => {
+const imprimirVideos = (videos, contenedor) => {
+    let ids = 0;
     contenedor.innerHTML = "";
 
     videos.forEach((video) => {
-
         const article = document.createElement("article");
         article.classList.add("main__article");
         article.innerHTML = `
-            <article class="main__article">
-                <img class="img__article"src="${video.miniatura}">
+                <img id="${ids++}" class="img__article"src="${video.miniatura}">
                 <h3 class="title__article"> ${video.titulo}</h3>
                 <p class="p__article"> ${video.autor}</p>
-                <p class="p__article">${video.vistas} Vistas - ${video.fecha}</p>
-            </article>`;
+                <p class="p__article">${video.vistas} Vistas - ${video.fecha}</p>`;
         contenedor.append(article);
-
     });
+
+    articles = document.querySelectorAll(".main__article");
+    crearPaginaDetalle();
 };
 
 
@@ -78,37 +80,45 @@ const imprimirVideos = (videos, contenedor, categoria = "todos", buscar = "") =>
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const videosS = sessionStorage.getItem("videos") ? JSON.parse(sessionStorage.getItem("videos")) : [];
-
-    if (!videosS.lenght) {
-        sessionStorage.setItem("videos", JSON.stringify(videos))
-        sessionStorage.getItem("videos")
+    if (!videosSS.length) {
+        console.log("object");
+        sessionStorage.setItem("videosSS", JSON.stringify(videos))
+        videosSS = JSON.parse(sessionStorage.getItem("videosSS"));
     }
 
-    console.log(videosS);
-
-    imprimirVideos(videos, videoContainer);
+    imprimirVideos(videosSS, videoContainer);
 })
 
 //Programar funcion Filtrado por categoria (Barra de botones)
 
 botones.forEach((boton) => {
     boton.addEventListener(("click"), (event) => {
-        if(event.target.id == "todos") imprimirVideos(videos, videoContainer, event.target.id)   
+        if(event.target.id == "todos") imprimirVideos(videosSS, videoContainer, event.target.id)   
         else {
-            const filtrado = videos.filter((video) => video.categoria == event.target.id)
-            imprimirVideos(filtrado, videoContainer, event.target.id)   
+            const filtrado = videosSS.filter((video) => video.categoria == event.target.id)
+            imprimirVideos(filtrado, videoContainer, event.target.id)
         }
     })
 })
 
-busqueda.addEventListener(("click"), () => {
+busqueda.addEventListener(("click"), (event) => {
     const keyword = document.querySelector("#search__input").value.toLowerCase()
     if (keyword) {
-        const filtrado = videos.filter((video) => video.titulo.toLowerCase().includes(keyword) || video.autor.toLowerCase().includes(keyword))
+        const filtrado = videosSS.filter((video) => video.titulo.toLowerCase().includes(keyword) || video.autor.toLowerCase().includes(keyword))
         imprimirVideos(filtrado, videoContainer, event.target.id)   
     }
 })
+
+crearPaginaDetalle = () => {
+    articles.forEach((article) => {
+        article.addEventListener("click", (event) => {
+            sessionStorage.setItem("id", event.target.id)
+            window.location.href = "/pages/seeDetails.html";
+        })
+    })
+}
+
+
 
 
 

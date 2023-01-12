@@ -70,10 +70,16 @@ body {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(1, 1fr);
     grid-column-gap: 10px;
-    grid-row-gap: 10px;
+    grid-row-gap: 15px;
     padding: 40px;
 }
 
+
+.main__article:hover {
+    transition: 1s;
+    cursor: pointer;
+    transform: scale(1.01,1.01);
+}
 
 
 .figure__container, .img__article {
