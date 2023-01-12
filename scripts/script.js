@@ -286,7 +286,7 @@ let articles;
 
 const busqueda = document.querySelector("#search__button")
 
-const imprimirVideos = (videos, contenedor) => {
+const imprimirVideos = (videos, contenedor, categoria, keyword) => {
     let ids = 0;
     contenedor.innerHTML = "";
 
@@ -298,13 +298,28 @@ const imprimirVideos = (videos, contenedor) => {
                 <h3 class="title__article"> ${video.titulo}</h3>
                 <p class="p__article"> ${video.autor}</p>
                 <p class="p__article">${video.vistas} Vistas - ${video.fecha}</p>`;
-        contenedor.append(article);
+        
+        agregarAlContenedor(contenedor, article, video, categoria, keyword)
     });
 
     articles = document.querySelectorAll(".main__article");
     crearPaginaDetalle();
 };
+//
 
+const agregarAlContenedor = (contenedor, article, video, categoria="todos", keyword)=> {
+
+    if(categoria != "search__button"){
+        if(categoria == "todos" || video.categoria == categoria)
+            contenedor.append(article)
+        return;
+    }
+    console.log(video.titulo, video.autor, keyword);
+    if(video.titulo.toLowerCase().includes(keyword) || video.autor.toLowerCase().includes(keyword)){
+        
+        contenedor.append(article)
+    }
+}
 
 //Eventos
 
@@ -325,8 +340,7 @@ botones.forEach((boton) => {
     boton.addEventListener(("click"), (event) => {
         if(event.target.id == "todos") imprimirVideos(videosSS, videoContainer, event.target.id)   
         else {
-            const filtrado = videosSS.filter((video) => video.categoria == event.target.id)
-            imprimirVideos(filtrado, videoContainer, event.target.id)
+            imprimirVideos(videosSS, videoContainer, event.target.id)
         }
     })
 })
@@ -334,8 +348,7 @@ botones.forEach((boton) => {
 busqueda.addEventListener(("click"), (event) => {
     const keyword = document.querySelector("#search__input").value.toLowerCase()
     if (keyword) {
-        const filtrado = videosSS.filter((video) => video.titulo.toLowerCase().includes(keyword) || video.autor.toLowerCase().includes(keyword))
-        imprimirVideos(filtrado, videoContainer, event.target.id)   
+        imprimirVideos(videosSS, videoContainer, event.target.id, keyword)   
     }
 })
 
