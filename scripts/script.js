@@ -343,7 +343,7 @@ crearPaginaDetalle = () => {
     articles.forEach((article) => {
         article.addEventListener("click", (event) => {
             sessionStorage.setItem("id", event.target.id)
-            window.location.href = "/pages/seeDetails.html";
+            window.location.href = "pages/seeDetails.html";
         })
     })
 }
