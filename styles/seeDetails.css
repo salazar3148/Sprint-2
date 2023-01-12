@@ -42,7 +42,6 @@ body {
 .column2 {
     margin-top: 20px;
     flex-direction: column;
-    height: 20%;
     color: white;
     font-weight: 100;
     font-family: Impact;

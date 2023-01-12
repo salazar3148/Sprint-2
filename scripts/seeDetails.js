@@ -27,9 +27,9 @@ const imprimirSugeridos = (videos, contenedor) => {
 };
 
 const imprimirDatos = () => {
-    
+    console.log(video);
     columna1.innerHTML = `
-        <iframe class="video" src="https://www.youtube.com/embed/XYdOLf_iE7M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe class="video" src="${video.url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         <h3 class="title__article"> ${video.titulo}</h3>
         <p class="p__article"> ${video.autor}</p>
         <p class="p__article">${video.vistas} Vistas - ${video.fecha}</p>`;
